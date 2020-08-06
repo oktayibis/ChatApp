@@ -60,9 +60,9 @@ const ChatScreen = ({route, user}) => {
         style={{
           flexDirection: 'row',
           backgroundColor:
-            item.from === user.phone ? colors.light : colors.secondary,
+            item.from === user.phoneNumber ? colors.light : colors.secondary,
           width: '60%',
-          alignSelf: item.from === user.phone ? 'flex-end' : 'flex-start',
+          alignSelf: item.from === user.phoneNumber ? 'flex-end' : 'flex-start',
           marginBottom: 10,
           borderRadius: 5,
         }}>
@@ -104,6 +104,7 @@ const styles = StyleSheet.create({
     padding: 5,
     width: '75%',
     marginLeft: 5,
+    borderRadius: 5,
   },
   btn: {
     backgroundColor: colors.secondary,
@@ -129,13 +130,15 @@ const styles = StyleSheet.create({
     padding: 7,
   },
   itemTime: {
-    color: colors.primary,
+    color: colors.text,
     opacity: 0.8,
     fontSize: 10,
   },
   list: {
     padding: 10,
-    height: dimension.height * 0.8,
+    height: dimension.height * 0.80,
+    marginBottom: 10,
+    
   },
 });
 
