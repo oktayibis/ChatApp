@@ -7,3 +7,13 @@ const colors = {
 };
 
 export {colors};
+
+
+const fonts = {
+  regular: "Dosis-Regular",
+  bold: "Dosis-Bold",
+  semiBold: "Dosis-SemiBold",
+  light: "Dosis-Light"
+}
+
+export {fonts};

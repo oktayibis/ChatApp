@@ -20,6 +20,14 @@
 		4259ACC223240868D39250AB /* libPods-ChatApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5631AAF84A8A44FE11285367 /* libPods-ChatApp.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A8ABB7324CDE599001CD657C /* libPods-ChatApp-ChatAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEEBD2FB1C97EDD3F6E4A6F /* libPods-ChatApp-ChatAppTests.a */; };
+		8792A9FD6A4C4538BA713617 /* Dosis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD03E80B559941BD9A817E1B /* Dosis-Bold.ttf */; };
+		8DB0AC3D660B45738A7C5855 /* Dosis-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C50E8C13076849F0B7796996 /* Dosis-ExtraBold.ttf */; };
+		88B6AC5A672E45C8B382E280 /* Dosis-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C60FE6D36D34B05BE89B9DE /* Dosis-ExtraLight.ttf */; };
+		5B05A9EF022D4C518730C053 /* Dosis-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FCDBAA7A0BE4EE989EA8EE5 /* Dosis-Light.ttf */; };
+		2AB2C1FAED5A49DF92CB68FC /* Dosis-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90CC1132C82F4BE4962A79A9 /* Dosis-Medium.ttf */; };
+		3690B588147A4F99AAA0C28D /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72AC665E79194A7EA5C1D24C /* Dosis-Regular.ttf */; };
+		227DD3C243C04A92B64DC220 /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74F6E478FAAF4FAC88A627C5 /* Dosis-SemiBold.ttf */; };
+		2A068E6AA7AB48638DE01275 /* Dosis-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AB9D3BE262F46C5B2C090D8 /* Dosis-VariableFont_wght.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +75,14 @@
 		DE8AB7112C8B6B1E871B710D /* Pods-ChatApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ChatApp-tvOSTests/Pods-ChatApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		FD03E80B559941BD9A817E1B /* Dosis-Bold.ttf */ = {isa = PBXFileReference; name = "Dosis-Bold.ttf"; path = "../assets/fonts/Dosis-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C50E8C13076849F0B7796996 /* Dosis-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Dosis-ExtraBold.ttf"; path = "../assets/fonts/Dosis-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6C60FE6D36D34B05BE89B9DE /* Dosis-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Dosis-ExtraLight.ttf"; path = "../assets/fonts/Dosis-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4FCDBAA7A0BE4EE989EA8EE5 /* Dosis-Light.ttf */ = {isa = PBXFileReference; name = "Dosis-Light.ttf"; path = "../assets/fonts/Dosis-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		90CC1132C82F4BE4962A79A9 /* Dosis-Medium.ttf */ = {isa = PBXFileReference; name = "Dosis-Medium.ttf"; path = "../assets/fonts/Dosis-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		72AC665E79194A7EA5C1D24C /* Dosis-Regular.ttf */ = {isa = PBXFileReference; name = "Dosis-Regular.ttf"; path = "../assets/fonts/Dosis-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		74F6E478FAAF4FAC88A627C5 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; name = "Dosis-SemiBold.ttf"; path = "../assets/fonts/Dosis-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3AB9D3BE262F46C5B2C090D8 /* Dosis-VariableFont_wght.ttf */ = {isa = PBXFileReference; name = "Dosis-VariableFont_wght.ttf"; path = "../assets/fonts/Dosis-VariableFont_wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +197,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				60495AFB169E83044E36FC65 /* Pods */,
+				7C950F2141A349FD9E603917 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -197,6 +214,22 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		7C950F2141A349FD9E603917 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				FD03E80B559941BD9A817E1B /* Dosis-Bold.ttf */,
+				C50E8C13076849F0B7796996 /* Dosis-ExtraBold.ttf */,
+				6C60FE6D36D34B05BE89B9DE /* Dosis-ExtraLight.ttf */,
+				4FCDBAA7A0BE4EE989EA8EE5 /* Dosis-Light.ttf */,
+				90CC1132C82F4BE4962A79A9 /* Dosis-Medium.ttf */,
+				72AC665E79194A7EA5C1D24C /* Dosis-Regular.ttf */,
+				74F6E478FAAF4FAC88A627C5 /* Dosis-SemiBold.ttf */,
+				3AB9D3BE262F46C5B2C090D8 /* Dosis-VariableFont_wght.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -342,6 +375,14 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				8792A9FD6A4C4538BA713617 /* Dosis-Bold.ttf in Resources */,
+				8DB0AC3D660B45738A7C5855 /* Dosis-ExtraBold.ttf in Resources */,
+				88B6AC5A672E45C8B382E280 /* Dosis-ExtraLight.ttf in Resources */,
+				5B05A9EF022D4C518730C053 /* Dosis-Light.ttf in Resources */,
+				2AB2C1FAED5A49DF92CB68FC /* Dosis-Medium.ttf in Resources */,
+				3690B588147A4F99AAA0C28D /* Dosis-Regular.ttf in Resources */,
+				227DD3C243C04A92B64DC220 /* Dosis-SemiBold.ttf in Resources */,
+				2A068E6AA7AB48638DE01275 /* Dosis-VariableFont_wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

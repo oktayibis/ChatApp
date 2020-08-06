@@ -18,7 +18,7 @@ import {
   Alert,
   TouchableHighlight,
 } from 'react-native';
-import {colors} from './screens/theme';
+import {colors, fonts} from './screens/theme';
 
 const App: () => React$Node = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
     marginBottom: 50,
     fontSize: 30,
     color: colors.secondary,
-    fontWeight: "bold",
     letterSpacing: 2,
+    fontFamily: fonts.semiBold,
   },
 
   input: {
@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
     width: '90%',
     padding: 15,
     marginBottom: 10,
+    fontFamily: fonts.light,
   },
   btn: {
     backgroundColor: colors.primary,
@@ -99,8 +100,8 @@ const styles = StyleSheet.create({
   btnText: {
     color: colors.text,
     fontSize: 16,
-    fontWeight: '600',
     letterSpacing: 1.5,
+    fontFamily: fonts.bold,
   },
 });
 
