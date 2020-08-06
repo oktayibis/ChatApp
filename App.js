@@ -1,108 +1,55 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import React, {useState} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  TextInput,
-  Text,
-  StatusBar,
-  Alert,
-  TouchableHighlight,
-} from 'react-native';
+import 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-community/async-storage';
 import {colors, fonts} from './screens/theme';
+import React, {useState, useEffect} from 'react';
+import SplashScreen from './screens/SplashScreen';
+import LoginScreen from './screens/LoginScreen';
+import HomeScreen from './screens/HomeScreen';
+import {View, Text} from 'react-native';
+import 'react-native-gesture-handler';
+import {createStackNavigator} from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
 
-const App: () => React$Node = () => {
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [username, setUsername] = useState('');
+export default function App() {
+  const Stack = createStackNavigator();
 
-  const submitForm = () => {
-    if (phoneNumber.length > 15 || phoneNumber.length < 10) {
-      Alert.alert('Phone Number is wrong.');
-    } else if (username.length < 3) {
-      Alert.alert('Your name can not be less than 3 characters');
-    } else {
-      Alert.alert(phoneNumber + username);
-      setPhoneNumber('');
-      setUsername('');
-    }
-  };
+  const [user, setUser] = useState({
+    userName: null,
+    phoneNumber: null,
+    auth: false,
+  });
+
+  useEffect(() => {
+    const getLogin = async () => {
+      await AsyncStorage.getItem('userPhone').then((val) => {
+        if (val) {
+          setUser({
+            ...user,
+            phoneNumber: val,
+            auth: true,
+          });
+        }
+      });
+    };
+
+    getLogin();
+  }, []);
+
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView style={styles.container}>
-        <Text style={styles.title}>ChatApp</Text>
-        <TextInput
-          placeholder="Phone Number"
-          style={styles.input}
-          value={phoneNumber}
-          placeholderTextColor={colors.primary}
-          keyboardType="number-pad"
-          textContentType="telephoneNumber"
-          onChangeText={(text) => setPhoneNumber(text)}
-        />
-        <TextInput
-          placeholder="Your Name"
-          value={username}
-          style={styles.input}
-          placeholderTextColor={colors.primary}
-          onChangeText={(text) => setUsername(text)}
-        />
-        <TouchableHighlight style={styles.btn} onPress={() => submitForm()}>
-          <Text style={styles.btnText}>Start Chat</Text>
-        </TouchableHighlight>
-      </SafeAreaView>
-    </>
+    <NavigationContainer>
+      <Stack.Navigator>
+        {user.auth === false ? (
+          // No token found, user isn't signed in
+          <Stack.Screen name="Home">
+            {(props) => <LoginScreen {...props} setUser={setUser} user={user} />}
+          </Stack.Screen>
+        ) : (
+          // User is signed in
+          <Stack.Screen name="Home">
+            {(props) => <HomeScreen {...props} setUser={setUser} user={user} />}
+          </Stack.Screen>
+        )}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.background,
-    flex: 4,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    marginBottom: 50,
-    fontSize: 30,
-    color: colors.secondary,
-    letterSpacing: 2,
-    fontFamily: fonts.semiBold,
-  },
-
-  input: {
-    borderWidth: 1,
-    backgroundColor: colors.text,
-    color: colors.primary,
-    borderRadius: 5,
-    borderColor: 'white',
-    width: '90%',
-    padding: 15,
-    marginBottom: 10,
-    fontFamily: fonts.light,
-  },
-  btn: {
-    backgroundColor: colors.primary,
-    paddingVertical: 10,
-    paddingHorizontal: 50,
-    borderRadius: 5,
-    marginTop: 20,
-  },
-  btnText: {
-    color: colors.text,
-    fontSize: 16,
-    letterSpacing: 1.5,
-    fontFamily: fonts.bold,
-  },
-});
-
-export default App;
+}
