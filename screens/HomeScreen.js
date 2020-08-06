@@ -9,18 +9,23 @@ import {
 import AsyncStorage from '@react-native-community/async-storage';
 import firebase from 'firebase';
 import {colors, fonts} from './theme';
-export default function HomeScreen({setUser, user}) {
+export default function HomeScreen({setUser, user, navigation}) {
   const [users, setUsers] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     let dbRef = firebase.database().ref('users');
     dbRef.on('child_added', (val) => {
       let person = val.val();
       person.phone = val.key;
-      return setUsers(prevState => [...prevState, person]);
+      if (user.phoneNumber === person.phone) {
+        setUser({
+          ...user,
+          name: person.name,
+        });
+      } else {
+        setUsers((prevState) => [...prevState, person]);
+      }
     });
-    setIsLoaded(true);
   }, []);
 
   const _handleLogout = async () => {
@@ -34,35 +39,32 @@ export default function HomeScreen({setUser, user}) {
 
   const renderRow = ({item}) => {
     return (
-      <TouchableHighlight style={styles.item}>
+      <TouchableHighlight
+        style={styles.item}
+        onPress={() => navigation.navigate('Chat', item)}>
         <Text style={styles.itemText}>{item.name}</Text>
       </TouchableHighlight>
     );
   };
 
-  if (isLoaded) {
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <TouchableHighlight
-            style={styles.btn}
-            onPress={() => _handleLogout()}>
-            <Text style={styles.btnText}>Logout</Text>
-          </TouchableHighlight>
-          <TouchableHighlight style={styles.btn}>
-            <Text style={styles.btnText}>Settings</Text>
-          </TouchableHighlight>
-        </View>
-        <FlatList
-          style={styles.list}
-          data={users}
-          renderItem={renderRow}
-          keyExtractor={(item) => item.phone}
-        />
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <TouchableHighlight style={styles.btn} onPress={() => _handleLogout()}>
+          <Text style={styles.btnText}>Logout</Text>
+        </TouchableHighlight>
+        <TouchableHighlight style={styles.btn}>
+          <Text style={styles.btnText}>Settings</Text>
+        </TouchableHighlight>
       </View>
-    );
-  }
-  return <Text style={styles.loading}>Loading</Text>;
+      <FlatList
+        style={styles.list}
+        data={users}
+        renderItem={renderRow}
+        keyExtractor={(item) => item.phone}
+      />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -102,11 +104,13 @@ const styles = StyleSheet.create({
   },
   itemText: {
     color: colors.text,
+    fontFamily: fonts.regular,
+    letterSpacing: 1.3,
   },
   loading: {
     backgroundColor: colors.light,
     padding: 10,
-    alignItems: "center",
-    justifyContent: "center",
-  }
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
