@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import {colors, fonts} from './theme';
 import AsyncStorage from '@react-native-community/async-storage';
-
+import firebase from "firebase"
 const LoginScreen: () => React$Node = ({setUser, user}) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [username, setUsername] = useState('');
@@ -25,11 +25,15 @@ const LoginScreen: () => React$Node = ({setUser, user}) => {
       Alert.alert('Error', 'Your name can not be less than 3 characters');
     } else {
       await AsyncStorage.setItem('userPhone', phoneNumber);
+      firebase.database().ref('users/' + phoneNumber).set({name: username});
+      setUser({
+        ...user,
+        userName: username,
+        phoneNumber: phoneNumber,
+        auth: true
+    })
       Alert.alert("Success", "You are chatting!");
-        setUser({
-            ...user,
-            auth: true
-        })
+ 
     }
   };
 
