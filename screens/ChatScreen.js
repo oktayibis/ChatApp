@@ -66,10 +66,23 @@ const ChatScreen = ({route, user}) => {
           marginBottom: 10,
           borderRadius: 5,
         }}>
-        <Text style={styles.itemText}>{item.message}</Text>
-        <Text style={styles.itemTime}>{item.time}</Text>
+        <View style={styles.messageContainer}>
+          <Text style={styles.itemText}>{item.message}</Text>
+          <Text style={styles.itemTime}>{convertTime(item.time)}</Text>
+        </View>
       </View>
     );
+  };
+
+  const convertTime = (time) => {
+    let day = new Date(time);
+    let current = new Date();
+    let result = day.getHours() < 10 ? '0' : '' + day.getHours() + ':';
+    result += day.getMinutes() < 10 ? '0' : '' + day.getMinutes();
+    if (current.getDay() !== day.getDay()) {
+      result = day.getDay() + ' ' + day.getMonth() + ' ' + result;
+    }
+    return result;
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -127,18 +140,20 @@ const styles = StyleSheet.create({
   },
   itemText: {
     color: colors.text,
-    padding: 7,
+    padding: 5,
   },
   itemTime: {
     color: colors.text,
     opacity: 0.8,
     fontSize: 10,
+    marginLeft: '70%',
+    marginBottom: 5,
+    fontFamily: fonts.light,
   },
   list: {
     padding: 10,
-    height: dimension.height * 0.80,
+    height: dimension.height * 0.8,
     marginBottom: 10,
-    
   },
 });
 

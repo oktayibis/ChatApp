@@ -10,6 +10,7 @@ import 'react-native-gesture-handler';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import firebase from 'firebase';
+import ProfileScreen from './screens/ProfileScreen';
 export default function App() {
   const Stack = createStackNavigator();
 
@@ -78,6 +79,13 @@ export default function App() {
               name="Chat">
               {(props) => (
                 <ChatScreen {...props} setUser={setUser} user={user} />
+              )}
+            </Stack.Screen>
+            <Stack.Screen
+              options={({route}) => ({title: route.params.name})}
+              name="Profile">
+              {(props) => (
+                <ProfileScreen {...props} setUser={setUser} user={user} />
               )}
             </Stack.Screen>
           </>

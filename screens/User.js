@@ -1,4 +1,4 @@
 const User = {
-    phone: null,
-    name: null,
-}
+  phone: null,
+  name: null,
+};
