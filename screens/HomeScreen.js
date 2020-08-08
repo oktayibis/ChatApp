@@ -53,13 +53,13 @@ export default function HomeScreen({setUser, user, navigation}) {
         <TouchableHighlight style={styles.btn} onPress={() => _handleLogout()}>
           <Text style={styles.btnText}>Logout</Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.btn}>
+        <TouchableHighlight style={styles.btn} onPress={()=>navigation.navigate("Profile")}>
           <Text style={styles.btnText}>Settings</Text>
         </TouchableHighlight>
       </View>
       <FlatList
         style={styles.list}
-        data={users}
+        data={users
         renderItem={renderRow}
         keyExtractor={(item) => item.phone}
       />
